@@ -44,7 +44,14 @@
             >;
         };
 
-        scroll_layer {
+        scroll_layer0 {
+            bindings = <
+                &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans
+            >;
+        };
+
+        scroll_layer1 {
             bindings = <
                 &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans
@@ -107,6 +114,13 @@
         // key_change_layer 用の設定（レイヤー1）
         rotated_layer1 {
             layers = <1>;
+            input-processors = <
+                &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
+            >;
+        };
+        // key_change_layer 用の設定（レイヤー3）
+        rotated_layer3 {
+            layers = <3>;
             input-processors = <
                 &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
             >;
