@@ -7,61 +7,63 @@
 
 &trackball {
     scroll-layers = <2>;
-//  automouse-layer = <3>;
-
+    // automouse-layer = <3>;
 };
 
-
+// ルートノードは1つだけ
 / {
+    // まず behaviors を定義
+    behaviors {
+        lt_m3: layer_tap_middle_click {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            // 第1セルは &mo（レイヤー）、第2セルは &mkp（MB3）
+            bindings = <&mo>, <&mkp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                // row0左から右へ（一番左のキーはリセットボタン）
-                &bt BT_NXT  &kp BACKSPACE  &kp SPACE  &kp ENTER
-                            &mkp LCLK       &lt_3 2 MB3  &mkp RCLK
+                // row0 左から右へ（一番左のキーはリセットボタン）
+                &bt BT_NXT   &kp BACKSPACE  &kp SPACE  &kp ENTER
+                             &mkp LCLK      &lt_m3 2 MB3  &mkp RCLK
             >;
-	};
+        };
 
-    key_change_layer {
+        key_change_layer {
             bindings = <
-                &bt BT_NXT  &mkp MB3       &mkp LCLK  &mkp RCLK
-                            &kp BACKSPACE  &kp SPACE  &kp ENTER
-        >;
-    };
+                &bt BT_NXT   &mkp MB3       &mkp LCLK  &mkp RCLK
+                             &kp BACKSPACE  &kp SPACE  &kp ENTER
+            >;
+        };
 
-    scroll_layer {
+        scroll_layer {
             bindings = <
                 &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans
-        >;
-    };
-    
-    //  auto_mouse_layer {
-    //      bindings = <
-    //          &trans  &mkp MB3  &mkp LCLK  &mkp RCLK
-    //  >;
-    //  };
+            >;
+        };
 
+        // auto_mouse_layer {
+        //     bindings = <
+        //         &trans  &mkp MB3  &mkp LCLK  &mkp RCLK
+        //     >;
+        // };
     };
 
     combos {
         compatible = "zmk,combos";
-
-        // Key4 + 5 = (□ - □ □ □)
-        //            (    ■ ■ □)
-			// スクロールレイヤー
 
         combo_layer1 {
             bindings = <&mo 2>;
             key-positions = <4 5>;
             timeout-ms = <50>;
         };
-        
-        // Key1 + 4 = (□ - ■ □ □)
-        //            (    ■ □ □)
-			// タップでLANGUAGE_2へ切り替え
 
         combo_layer2 {
             bindings = <&kp LANGUAGE_2>;
@@ -69,19 +71,11 @@
             timeout-ms = <50>;
         };
 
-        // Key3 + 6 = (□ - □ □ ■)
-        //            (    □ □ ■)
-			// タップでLANGUAGE_1へ切り替え
-
         combo_layer3 {
             bindings = <&kp LANGUAGE_1>;
             key-positions = <3 6>;
             timeout-ms = <50>;
         };
-
-        // Key1 + 3 = (□ -  ■ □ ■)
-        //            (□ -  □ □ □)
-			// 1番レイヤーをトグル(上段と下段のキーを入れ替え)
 
         combo_layer4 {
             bindings = <&tog 1>;
@@ -89,38 +83,16 @@
             timeout-ms = <50>;
         };
 
-		// Key1 + 2 + 4 + 5 = (□ - ■ ■ □)
-        //                    (    ■ ■ □)
-			// 接続先を変更（1→3トグル）
-
         combo_layer5 {
             bindings = <&bt BT_NXT>;
             key-positions = <1 2 4 5>;
             timeout-ms = <50>;
         };
 
-		// Key2 + 3 + 5 + 6 = (□ - □ ■ ■)
-        //                    (    □ ■ ■)
-			// 現在の接続先のBT接続情報を消去
-
         combo_layer6 {
             bindings = <&bt BT_CLR>;
             key-positions = <2 3 5 6>;
             timeout-ms = <50>;
         };
-
-
     };
-	// behaviors 定義側
-	/ {
-    	behaviors {
-        	lt_m3: layer_tap_middle_click {
-            	compatible = "zmk,behavior-hold-tap";
-	            #binding-cells = <2>;
-    	        flavor = "tap-preferred";
-        	    tapping-term-ms = <200>;
-            	bindings = <&mo>, <&mkp>;  // ← Tap 側に &mkp を使う
-        	};
-    	};
-	};
 };
