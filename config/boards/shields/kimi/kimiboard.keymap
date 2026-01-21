@@ -4,6 +4,8 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/rgbled_widget.dtsi>
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 &trackball {
     scroll-layers = <2>;
@@ -93,6 +95,16 @@
             bindings = <&bt BT_CLR>;
             key-positions = <2 3 5 6>;
             timeout-ms = <50>;
+        };
+    };
+
+    &trackball_listener {
+        // key_change_layer 用の設定（レイヤー1）
+        rotated_layer1 {
+            layers = <1>;
+            input-processors = <
+                &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+            >;
         };
     };
 };
