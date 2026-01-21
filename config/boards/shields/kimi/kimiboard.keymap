@@ -20,7 +20,7 @@
             bindings = <
                 // row0左から右へ（一番左のキーはリセットボタン）
                 &bt BT_NXT  &kp BACKSPACE  &kp SPACE  &kp ENTER
-                            &mkp LCLK       &lt 2 &mkp MB3  &mkp RCLK
+                            &mkp LCLK       &lt_3 2 MB3  &mkp RCLK
             >;
 	};
 
@@ -111,5 +111,16 @@
 
 
     };
-
+	// behaviors 定義側
+	/ {
+    	behaviors {
+        	lt_m3: layer_tap_middle_click {
+            	compatible = "zmk,behavior-hold-tap";
+	            #binding-cells = <2>;
+    	        flavor = "tap-preferred";
+        	    tapping-term-ms = <200>;
+            	bindings = <&mo>, <&mkp>;  // ← Tap 側に &mkp を使う
+        	};
+    	};
+	};
 };
