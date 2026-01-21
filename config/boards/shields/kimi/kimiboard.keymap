@@ -97,14 +97,15 @@
             timeout-ms = <50>;
         };
     };
+};
 
-    &trackball_listener {
-        // key_change_layer 用の設定（レイヤー1）
-        rotated_layer1 {
-            layers = <1>;
-            input-processors = <
-                &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
-            >;
-        };
+// ★ trackball_listener は既にどこかで `trackball_listener:` として定義されている前提
+&trackball_listener {
+    // key_change_layer 用の設定（レイヤー1）
+    rotated_layer1 {
+        layers = <1>;
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+        >;
     };
 };
