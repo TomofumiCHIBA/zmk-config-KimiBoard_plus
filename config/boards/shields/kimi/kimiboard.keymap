@@ -20,7 +20,7 @@
             bindings = <
                 // row0左から右へ（一番左のキーはリセットボタン）
                 &bt BT_NXT  &kp BACKSPACE  &kp SPACE  &kp ENTER
-                            &mkp LCLK       &lt 2 MB3  &mkp RCLK
+                            &mkp LCLK       &lt 2 &mkp MB3  &mkp RCLK
             >;
 	};
 
