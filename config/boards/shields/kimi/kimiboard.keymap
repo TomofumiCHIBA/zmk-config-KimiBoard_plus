@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball {
-    scroll-layers = <1>;
+    scroll-layers = <3>;
     // automouse-layer = <3>;
 };
 
@@ -128,7 +128,7 @@
 
         // スクロール用の軸変換（例：レイヤー1,3）
         rotated_scroll {
-            layers = <3>;
+            layers = <1>;
             input-processors = <
                 // ① まず Layer2 と同じ軸回転
                 &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
