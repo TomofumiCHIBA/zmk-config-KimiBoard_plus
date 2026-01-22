@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball {
-    scroll-layers = <2 3>;
+    scroll-layers = <1 3>;
     // automouse-layer = <3>;
 };
 
@@ -33,14 +33,7 @@
             bindings = <
                 // row0 左から右へ（一番左のキーはリセットボタン）
                 &bt BT_NXT   &kp BACKSPACE  &kp SPACE     &kp ENTER
-                             &mkp LCLK      &lt_m3 2 MB3  &mkp RCLK
-            >;
-        };
-
-        key_change_layer {
-            bindings = <
-                &bt BT_NXT   &lt_m3 3 MB3   &kp BACKSPACE  &mkp LCLK 
-                             &kp SPACE      &kp ENTER      &mkp RCLK
+                             &lt_m3 2 MB3   &mkp LCLK     &mkp RCLK
             >;
         };
 
@@ -48,6 +41,13 @@
             bindings = <
                 &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans
+            >;
+        };
+
+        key_change_layer {
+            bindings = <
+                &bt BT_NXT   &lt_m3 3 MB3   &kp BACKSPACE  &mkp LCLK 
+                             &kp SPACE      &kp ENTER      &mkp RCLK
             >;
         };
 
@@ -113,7 +113,7 @@
 
         // key_change_layer 用の設定（レイヤー1）
         rotated_layer1 {
-            layers = <1 3>;
+            layers = <2 3>;
             input-processors = <
                 &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
             >;
