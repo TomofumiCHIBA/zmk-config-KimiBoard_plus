@@ -33,7 +33,7 @@
             bindings = <
                 // row0 左から右へ（一番左のキーはリセットボタン）
                 &bt BT_NXT   &kp BACKSPACE  &kp SPACE     &kp ENTER
-                             &lt_m3 1 MB3   &mkp LCLK     &mkp RCLK
+                             &lt_m3 3 MB3   &mkp LCLK     &mkp RCLK
             >;
         };
 
@@ -46,7 +46,7 @@
 
         key_change_layer {
             bindings = <
-                &bt BT_NXT   &lt_m3 3 MB3   &kp BACKSPACE  &mkp LCLK 
+                &bt BT_NXT   &lt_m3 1 MB3   &kp BACKSPACE  &mkp LCLK 
                              &kp SPACE      &kp ENTER      &mkp RCLK
             >;
         };
@@ -126,7 +126,7 @@
             >;
         };
 
-        // スクロール用の軸変換（例：レイヤー1,3）
+        // スクロール用の軸変換（例：レイヤー1）
         rotated_scroll {
             layers = <1>;
             input-processors = <
