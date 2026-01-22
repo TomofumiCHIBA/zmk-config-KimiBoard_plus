@@ -111,11 +111,19 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        // key_change_layer 用の設定（レイヤー1）
-        rotated_layer1 {
-            layers = <2 3>;
+        // ポインタ用の軸変換（例：レイヤー2）
+        rotated_pointer {
+            layers = <2>;
             input-processors = <
                 &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
+            >;
+        };
+
+        // スクロール用の軸変換（例：レイヤー1,3）
+        rotated_scroll {
+            layers = <1 3>;
+            input-processors = <
+                &zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
             >;
         };
     };
