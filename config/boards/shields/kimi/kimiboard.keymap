@@ -87,7 +87,7 @@
         };
 
         combo_layer4 {
-            bindings = <&tog 2>;
+            bindings = <&mo 2>;
             key-positions = <1 3>;
             timeout-ms = <50>;
         };
@@ -103,6 +103,13 @@
             key-positions = <2 3 5 6>;
             timeout-ms = <50>;
         };
+
+        combo_layer4 {
+            bindings = <&mo 1>;
+            key-positions = <4 6>;
+            timeout-ms = <50>;
+        };
+
     };
 
     // ★ trackball_listener ノードをここで定義（ラベルも付ける）
