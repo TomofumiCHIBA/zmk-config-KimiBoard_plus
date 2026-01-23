@@ -40,21 +40,21 @@
         scroll_layer0 {
             bindings = <
                 &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans
+                &trans  &trans  &trans  &trans
             >;
         };
 
         key_change_layer {
             bindings = <
-                &bt BT_NXT   &to 3   &kp BACKSPACE  &mkp LCLK 
-                             &mkp aMB3      &kp ENTER      &mkp RCLK
+                &bt BT_NXT   &to 3       &kp BACKSPACE  &mkp LCLK 
+                             &mkp aMB3   &kp ENTER      &mkp RCLK
             >;
         };
 
         scroll_layer1 {
             bindings = <
                 &trans  &to 2   &trans  &trans
-                        &trans  &trans  &trans
+                &trans  &trans  &trans  &trans
             >;
         };
 
