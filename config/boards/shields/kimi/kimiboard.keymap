@@ -33,28 +33,28 @@
             bindings = <
                 // row0 左から右へ（一番左のキーはリセットボタン）
                 &bt BT_NXT   &kp BACKSPACE  &kp SPACE     &kp ENTER
-                             &lt_m3 3 MB3   &mkp LCLK     &mkp RCLK
+                             &lt_m3 1 MB3   &mkp LCLK     &mkp RCLK
             >;
         };
 
         scroll_layer0 {
             bindings = <
                 &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans
             >;
         };
 
         key_change_layer {
             bindings = <
-                &bt BT_NXT   &lt_m3 1 MB3   &kp BACKSPACE  &mkp LCLK 
-                             &kp SPACE      &kp ENTER      &mkp RCLK
+                &bt BT_NXT   &to 3   &kp BACKSPACE  &mkp LCLK 
+                             &mkp aMB3      &kp ENTER      &mkp RCLK
             >;
         };
 
         scroll_layer1 {
             bindings = <
-                &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans
+                &trans  &to 2   &trans  &trans
+                        &trans  &trans  &trans
             >;
         };
 
