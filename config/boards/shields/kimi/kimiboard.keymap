@@ -39,22 +39,22 @@
 
         scroll_layer0 {
             bindings = <
-                &trans  &trans   &trans  &trans
-                        &trans  &trans  &trans
+                &trans  &msc SCRL_LEFT   &msc SCRL_UP    &msc SCRL_RIGHT
+                        &trans           &msc SCRL_DOWN  &trans
             >;
         };
 
         key_change_layer {
             bindings = <
-                &bt BT_NXT   &to 3       &kp BACKSPACE  &mkp LCLK 
-                             &mkp MB3   &kp ENTER      &mkp RCLK
+                &bt BT_NXT   &lt_m3 3 MB3  &kp BACKSPACE  &mkp LCLK 
+                             &to 3         &kp ENTER      &mkp RCLK
             >;
         };
 
         scroll_layer1 {
             bindings = <
-                &trans  &to 2   &trans  &trans
-                        &trans  &trans  &trans
+                &trans  &trans  &msc SCRL_LEFT   &msc SCRL_DOWN
+                        &to 2   &msc SCRL_RIGHT  &msc SCRL_UP
             >;
         };
 
