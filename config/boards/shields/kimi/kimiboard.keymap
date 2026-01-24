@@ -39,14 +39,14 @@
 
         scroll_layer0 {
             bindings = <
-                &trans  &trans  &trans  &trans
+                &trans  &to 2   &trans  &trans
                         &trans  &trans  &trans
             >;
         };
 
         key_change_layer {
             bindings = <
-                &bt BT_NXT   &to 3       &kp BACKSPACE  &mkp LCLK 
+                &bt BT_NXT   &to 1       &kp BACKSPACE  &mkp LCLK 
                              &mkp MB3   &kp ENTER      &mkp RCLK
             >;
         };
@@ -120,7 +120,7 @@
 
         // ポインタ用の軸変換（例：レイヤー2）
         rotated_pointer {
-            layers = <2>;
+            layers = <1 2>;
             input-processors = <
                 &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
             >;
